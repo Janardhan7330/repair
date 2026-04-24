@@ -11,18 +11,60 @@ const faqs = [
 
 const TrustAndBooking = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    service: '',
+    address: '',
+    message: ''
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const { name, phone, service, address, message } = formData;
+    
+    if (!name || !phone || !service || !address) {
+      alert("Please fill all required fields (Name, Phone, Service, and Address).");
+      return;
+    }
+
+    if (phone.length < 10) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     setIsSubmitting(true);
-    setTimeout(() => { setIsSubmitting(false); setIsSubmitted(true); }, 1500);
+
+    const waMessage = `New Service Booking:
+Name: ${name}
+Phone: ${phone}
+Service: ${service}
+Area: ${address}
+${message ? `Message: ${message}` : ''}`;
+
+    const encodedMessage = encodeURIComponent(waMessage.trim());
+    const whatsappUrl = `https://wa.me/919182763811?text=${encodedMessage}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+
+    // Show success UI locally
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      // Reset form
+      setFormData({ name: '', phone: '', service: '', address: '', message: '' });
+    }, 1000);
   };
 
   return (
     <div>
-      {/* ABOUT */}
+      {/* ... existing About and Reviews sections ... */}
       <section id="about" className="py-16 sm:py-24 md:py-32 bg-surface">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
@@ -142,17 +184,20 @@ const TrustAndBooking = () => {
                 <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                   <h3 className="text-lg sm:text-xl font-bold tracking-tight mb-1.5">Book Your Service</h3>
                   <p className="text-text-secondary text-sm mb-6 sm:mb-7">Get fast and reliable repair at your doorstep.</p>
-                  <form onSubmit={handleSubmit} className="space-y-3">
+                  <form onSubmit={handleBooking} className="space-y-3">
                     <input
                       id="booking-name" name="name" type="text" required placeholder="Full Name"
+                      value={formData.name} onChange={handleChange}
                       className="w-full bg-bg border border-border rounded-xl px-4 py-3.5 text-sm text-text placeholder:text-text-tertiary focus:outline-none focus:border-primary/40 transition-colors"
                     />
                     <input
                       id="booking-phone" name="phone" type="tel" required pattern="[0-9]{10}" placeholder="Phone Number (10 digits)"
+                      value={formData.phone} onChange={handleChange}
                       className="w-full bg-bg border border-border rounded-xl px-4 py-3.5 text-sm text-text placeholder:text-text-tertiary focus:outline-none focus:border-primary/40 transition-colors"
                     />
                     <select
                       id="booking-service" name="service" required
+                      value={formData.service} onChange={handleChange}
                       className="w-full bg-bg border border-border rounded-xl px-4 py-3.5 text-sm text-text focus:outline-none focus:border-primary/40 transition-colors"
                     >
                       <option value="">Select Service</option>
@@ -163,15 +208,21 @@ const TrustAndBooking = () => {
                       <option>Dishwasher</option>
                       <option>Air Cooler</option>
                     </select>
+                    <input
+                      id="booking-address" name="address" type="text" required placeholder="Your area in Tirupati"
+                      value={formData.address} onChange={handleChange}
+                      className="w-full bg-bg border border-border rounded-xl px-4 py-3.5 text-sm text-text placeholder:text-text-tertiary focus:outline-none focus:border-primary/40 transition-colors"
+                    />
                     <textarea
-                      id="booking-address" name="address" required placeholder="Your area in Tirupati" rows={3}
+                      id="booking-message" name="message" placeholder="Message (Optional)" rows={2}
+                      value={formData.message} onChange={handleChange}
                       className="w-full bg-bg border border-border rounded-xl px-4 py-3.5 text-sm text-text placeholder:text-text-tertiary focus:outline-none focus:border-primary/40 transition-colors resize-none"
                     />
                     <button
                       id="booking-submit" type="submit" disabled={isSubmitting}
                       className="w-full py-3.5 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
                     >
-                      {isSubmitting ? 'Submitting...' : 'Book Service'}
+                      {isSubmitting ? 'Opening WhatsApp...' : 'Book via WhatsApp'}
                     </button>
                   </form>
                 </motion.div>
