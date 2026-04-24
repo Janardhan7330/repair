@@ -42,7 +42,7 @@ const TrustAndBooking = () => {
               <p className="text-primary text-[12px] sm:text-[13px] font-semibold tracking-wide mb-2">About Us</p>
               <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold tracking-tight mb-4 sm:mb-5">Sri Venkateswara Service Centre</h2>
               <p className="text-text-secondary text-sm sm:text-base leading-relaxed mb-8">
-                A trusted home appliance repair service provider in Tirupati. We are committed to delivering fast, reliable, and affordable solutions for all your household appliances. With skilled technicians and years of experience, we ensure quality service and customer satisfaction every time.
+                The leading provider of AC repair in Tirupati and refrigerator repair near me. Sri Venkateswara Service Centre is committed to delivering fast, reliable, and affordable doorstep appliance repair in Tirupati. With skilled technicians and years of experience, we ensure quality washing machine service and customer satisfaction every time.
               </p>
               
               <div className="grid grid-cols-2 gap-3 sm:gap-4 text-left">

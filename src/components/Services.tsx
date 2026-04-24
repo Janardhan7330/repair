@@ -3,33 +3,33 @@ import { ArrowUpRight } from 'lucide-react';
 
 const services = [
   {
-    title: "AC Repair & Service",
-    description: "Complete AC repair, gas filling, installation, and maintenance for all brands.",
+    title: "AC Repair in Tirupati",
+    description: "Best AC repair near me. Complete service including gas filling, installation, and maintenance for all brands.",
     image: "/ezgif-6a30850ca2629e8d-jpg/frame_002.jpeg"
   },
   {
-    title: "Refrigerator Repair",
-    description: "Fast diagnosis and repair for cooling issues, gas leaks, and compressor problems.",
+    title: "Fridge Repair near me",
+    description: "Expert refrigerator repair in Tirupati. Fast diagnosis for cooling issues, gas leaks, and compressor problems.",
     image: "/ezgif-6a30850ca2629e8d-jpg/frame_004.jpeg"
   },
   {
-    title: "Washing Machine Repair",
-    description: "Expert repair for front-load and top-load machines including motor and drum issues.",
+    title: "Washing Machine Service Tirupati",
+    description: "Top-rated washing machine service near me. Expert repair for front-load and top-load machines.",
     image: "/ezgif-6a30850ca2629e8d-jpg/frame_005.jpeg"
   },
   {
-    title: "Microwave Repair",
-    description: "Safe and reliable repair for heating issues, panel faults, and electrical problems.",
+    title: "Microwave Repair Tirupati",
+    description: "Safe and reliable microwave oven repair near me. Fixing heating issues and panel faults.",
     image: "/ezgif-6a30850ca2629e8d-jpg/frame_001.jpeg"
   },
   {
-    title: "Dishwasher Repair",
-    description: "Professional service for cleaning issues, drainage problems, and system errors.",
+    title: "Dishwasher Service Tirupati",
+    description: "Professional dishwasher repair near me. Expert service for cleaning and drainage problems.",
     image: "/ezgif-6a30850ca2629e8d-jpg/frame_009.jpeg"
   },
   {
-    title: "Air Cooler Service",
-    description: "Maintenance and repair to keep your air cooler running efficiently.",
+    title: "Air Cooler Service Tirupati",
+    description: "Efficient air cooler repair near me. Maintenance and service across all areas of Tirupati.",
     image: "/ezgif-6a30850ca2629e8d-jpg/frame_008.jpeg"
   }
 ];

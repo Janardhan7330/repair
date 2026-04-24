@@ -151,7 +151,7 @@ const ScrollHero = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-[1.75rem] sm:text-[2.25rem] md:text-[2.75rem] lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight text-text mb-4 sm:mb-5"
               >
-                Fast & Trusted{' '}Appliance Repair{' '}
+                Fast & Trusted{' '}Doorstep Appliance Repair{' '}
                 <span className="text-primary">in Tirupati</span>
               </motion.h1>
 
@@ -161,7 +161,7 @@ const ScrollHero = () => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="text-text-secondary text-[15px] sm:text-lg leading-relaxed mb-2 sm:mb-3 max-w-md"
               >
-                Same-Day Doorstep Service for AC, Refrigerator, Washing Machine & More
+                Reliable AC, Refrigerator, and Washing Machine Service in Tirupati. Expert doorstep repairs when you search for appliance service near me.
               </motion.p>
 
               <motion.p
